@@ -13,10 +13,10 @@
         <div class="row header">
             <div class="cell">Description</div>
             <div class="cell">Calories</div>
-            <div class="cell">Time</div>
+            <div class="cell">Date/Time</div>
         </div>
         <c:forEach items="${list}" var="item">
-            <div class="${item.excess eq true ? 'row green' : 'row red'}">
+            <div class="${item.excess ? 'row red' : 'row green'}">
                 <div class="cell">${item.description}</div>
                 <div class="cell">${item.calories}</div>
                 <div class="cell">${item.dateTime.toLocalDate()} ${item.dateTime.toLocalTime()}</div>
