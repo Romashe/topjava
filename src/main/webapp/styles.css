@@ -1,0 +1,39 @@
+.table {
+    display: table;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    background: white;
+    max-width: 70%;
+    width: 70%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.header {
+    font-weight: normal;
+    color: #000;
+    border-bottom: 2px solid #000000;
+    padding: 10px 8px;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 9px 8px;
+    transition: .3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.row.green {
+    color: green;
+}
+
+.row.red {
+    color: red;
+}
+
+.row:hover .cell {
+    background: #eaecf4;
+}
