@@ -30,6 +30,7 @@ public class MealViewInMemory implements MealView {
 
     @Override
     public void addMeal(Meal meal) {
+        meal.setId(getNextId());
         this.mealMap.put(meal.getId(), meal);
     }
 

@@ -62,7 +62,7 @@ public class MealServlet extends HttpServlet {
         LocalDateTime mealDateTime = LocalDateTime.parse(request.getParameter("dateTime"));
         String mealId = request.getParameter("mealId");
         if (mealId == null || mealId.isEmpty()) {
-            mealView.addMeal(new Meal(mealDateTime, request.getParameter("description"), Integer.parseInt(request.getParameter("calories")), MealViewInMemory.getNextId()));
+            mealView.addMeal(new Meal(mealDateTime, request.getParameter("description"), Integer.parseInt(request.getParameter("calories"))));
         } else {
             mealView.updateMeal(new Meal(mealDateTime, request.getParameter("description"), Integer.parseInt(request.getParameter("calories")), Integer.parseInt(mealId)));
         }
