@@ -22,8 +22,8 @@
             <div class="cell">${item.description}</div>
             <div class="cell">${item.calories}</div>
             <div class="cell">${item.dateTime.toLocalDate()} ${item.dateTime.toLocalTime()}</div>
-            <div class="cell"><a href="meals?action=update&mealId=<c:out value="${item.id}"/>">Update</a></div>
-            <div class="cell"><a href="meals?action=delete&mealId=<c:out value="${item.id}"/>">Delete</a></div>
+            <div class="cell"><a href="meals?action=update&mealId=${item.id}">Update</a></div>
+            <div class="cell"><a href="meals?action=delete&mealId=${item.id}">Delete</a></div>
         </div>
     </c:forEach>
     </div>

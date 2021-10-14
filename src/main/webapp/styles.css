@@ -37,3 +37,7 @@
 .row:hover .cell {
     background: #eaecf4;
 }
+
+.hidden{
+    display: none;
+}

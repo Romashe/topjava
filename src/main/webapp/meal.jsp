@@ -11,23 +11,23 @@
 <h2>Meal</h2>
 <div class="table">
     <form method="POST" action='meals' name="frmAddMeal">
-        <div class="row">
+        <div class="row hidden">
             <div class="cell">Meal Id:</div>
-            <div class="cell"><input type="text" readonly="readonly" name="mealId" value="<c:out value="${meal.id}" />"/></div>
+            <div class="cell"><input type="text" readonly="readonly" name="mealId" value="${meal.id}"/></div>
         </div>
         <div class="row">
             <div class="cell">Description:</div>
-            <div class="cell"><input required type="text" name="description" value="<c:out value="${meal.description}" />"/>
+            <div class="cell"><input required type="text" name="description" value="${meal.description}"/>
             </div>
         </div>
         <div class="row">
             <div class="cell">Calories:</div>
-            <div class="cell"><input required type="number" min = "0" max = "10000" name="calories" value="<c:out value="${meal.calories}"/>"/>
+            <div class="cell"><input required type="number" min = "0" max = "10000" name="calories" value="${meal.calories}"/>
             </div>
         </div>
         <div class="row">
             <div class="cell">Date/Time:</div>
-            <div class="cell"><input required type="datetime-local" name="dateTime" value="<c:out value="${meal.dateTime}" />"/>
+            <div class="cell"><input required type="datetime-local" name="dateTime" value="${meal.dateTime}"/>
             </div>
         </div>
         <div class="row">
