@@ -16,25 +16,14 @@ import java.util.stream.Collectors;
 public class InMemoryUserRepository implements UserRepository {
     private static final Logger log = LoggerFactory.getLogger(InMemoryUserRepository.class);
     private final AtomicInteger counter = new AtomicInteger(0);
-    private static final Map<Integer, User> repository = new ConcurrentHashMap<>();
+    private final Map<Integer, User> repository = new ConcurrentHashMap<>();
     {
         List<User> users = Arrays.asList(
-                new User("cPetka", "petka@ya.ru", "peta", 1500, true, new HashSet<Role>() {{
-                    add(Role.USER);
-                    add(Role.ADMIN);
-                }}),
-                new User("bVanka", "vanka@ya.ru", "peta", 2500, true, new HashSet<Role>() {{
-                    add(Role.USER);
-                }}),
-                new User("aStepa", "astep@ya.ru", "peta", 1000, true, new HashSet<Role>() {{
-                    add(Role.ADMIN);
-                }}),
-                new User("aStepa", "bstep@ya.ru", "peta", 1000, true, new HashSet<Role>() {{
-                    add(Role.ADMIN);
-                }}),
-                new User("aStepa", "cstep@ya.ru", "peta", 1000, true, new HashSet<Role>() {{
-                    add(Role.ADMIN);
-                }})
+                new User("cPetka", "petka@ya.ru", "peta", 1500, true, EnumSet.of(Role.ADMIN, Role.USER)),
+                new User("bVanka", "vanka@ya.ru", "peta", 2500, true, EnumSet.of(Role.USER)),
+                new User("aStepa", "astep@ya.ru", "peta", 1000, true, EnumSet.of(Role.USER)),
+                new User("aStepa", "bstep@ya.ru", "peta", 1000, true, EnumSet.of(Role.USER)),
+                new User("aStepa", "cstep@ya.ru", "peta", 1000, true, EnumSet.of(Role.USER))
         );
         users.forEach(this::save);
     }
@@ -67,17 +56,15 @@ public class InMemoryUserRepository implements UserRepository {
     public List<User> getAll() {
         log.info("getAll");
         return repository.values().stream()
-                .sorted(Comparator.comparing(User::getName))
-                .sorted(Comparator.comparing(User::getEmail))
+                .sorted(Comparator.comparing(User::getName).thenComparing(User::getEmail))
                 .collect(Collectors.toList());
     }
 
     @Override
     public User getByEmail(String email) {
         log.info("getByEmail {}", email);
-        Optional<User> userOptional = repository.values().stream()
+        return repository.values().stream()
                 .filter(user -> user.getEmail().equalsIgnoreCase(email))
-                .findFirst();
-        return userOptional.orElse(null);
+                .findFirst().orElse(null);
     }
 }
