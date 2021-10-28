@@ -29,7 +29,6 @@ import static ru.javawebinar.topjava.UserTestData.USER_ID;
 })
 @RunWith(SpringRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
-
 public class MealServiceTest {
     static {
         // Only for postgres driver logging
@@ -69,6 +68,12 @@ public class MealServiceTest {
     }
 
     @Test
+    public void getBetweenInclusiveWithoutDates() {
+        List<Meal> userMeals = service.getBetweenInclusive(null,null, USER_ID);
+        assertMatch(userMeals, MealTestData.userMeals);
+    }
+
+    @Test
     public void getBetweenInclusiveEmptyList() {
         List<Meal> userMeals = service.getBetweenInclusive(LocalDate.of(3000, Month.JANUARY, 30),
                 LocalDate.of(3020, Month.JANUARY, 31), USER_ID);
@@ -100,7 +105,7 @@ public class MealServiceTest {
 
     @Test
     public void deleteNotFoundByUserId() {
-        assertThrows(NotFoundException.class, () -> service.delete(USER_MEAL_ID, NOT_FOUND));
+        assertThrows(NotFoundException.class, () -> service.delete(USER_MEAL_ID, UserTestData.NOT_FOUND));
     }
 
     @Test
@@ -110,14 +115,14 @@ public class MealServiceTest {
 
     @Test
     public void update() {
-        Meal updated = getUpdated(USER_MEAL_ID);
+        Meal updated = getUpdated();
         service.update(updated, USER_ID);
-        assertMatch(service.get(USER_MEAL_ID, USER_ID), getUpdated(USER_MEAL_ID));
+        assertMatch(service.get(USER_MEAL_ID, USER_ID), getUpdated());
     }
 
     @Test
     public void updateNotFoundByUser() {
-        Meal updated = getUpdated(USER_MEAL_ID);
+        Meal updated = getUpdated();
         assertThrows(NotFoundException.class, () -> service.update(updated, ADMIN_ID));
     }
 
