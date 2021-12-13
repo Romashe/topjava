@@ -338,6 +338,7 @@ JUnit предоставляет нам набор коллбэков — инт
 
 - [JUnit 5 homepage](https://junit.org/junit5)
 - [Overview](https://junit.org/junit5/docs/snapshot/user-guide/#overview)
+- [Миграция с JUnit4 на JUnit5: важные отличия и преимущества](https://topjava.ru/blog/migratsiya-s-junit4-na-junit5)
 - [10 интересных нововведений](https://habr.com/post/337700)
 - Дополнительно:
     - [Extension Model](https://junit.org/junit5/docs/current/user-guide/#extensions)

@@ -502,7 +502,7 @@ Spring Security может работать не только на уровне 
 > - В Spring Security 4.x по умолчанию включен CSRF (защита от <a href="https://ru.wikipedia.org/wiki/Межсайтовая_подделка_запроса">межсайтовой подделки запроса</a>). Выключил, включим на 10-м занятии.
 > - В Spring Security 5.x по умолчанию пароль кодируется. Выключил, включим на 10-м занятии.
 
-- [Adding a Password Encoder](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#ns-password-encoder)
+- [Adding a Password Encoder](https://docs.spring.io/spring-security/reference/servlet/appendix/namespace/authentication-manager.html#nsa-password-encoder)
 
 #### Apply 8_12_add_security.patch
 
