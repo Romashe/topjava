@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" id="editRow">
+<div class="modal fade" tabindex="-1" id="editRow" :input>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
