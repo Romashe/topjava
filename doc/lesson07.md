@@ -582,6 +582,7 @@ SOAP UI - это один из инструментов для тестиров�
 
 - Инструменты тестирования REST:
     - <a href="https://www.soapui.org/downloads/soapui/">SoapUi</a>
+    - [Что такое Curl? Как работает эта команда?](https://highload.today/curl/)
     - <a href="http://rus-linux.net/lib.php?name=/MyLDP/internet/curlrus.html">Написание HTTP-запросов с помощью Curl</a>.  
       Для Windows 7 можно использовать Git Bash, с Windows 10 v1803 можно прямо из консоли. Возможны проблемы с UTF-8:
         - [CURL doesn't encode UTF-8](https://stackoverflow.com/a/41384903/548473)
